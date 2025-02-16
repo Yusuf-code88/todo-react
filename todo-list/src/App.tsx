@@ -1,8 +1,14 @@
 import { useState } from "react";
 
+interface MainData {
+  title: string;
+  done: boolean;
+}
+
 export default function App() {
   const [inputValue, setInputValue] = useState("");
-  const [item, setItem] = useState<string[]>([]);
+  const [item, setItem] = useState<MainData[]>([]);
+  const [isActive, setIsActive] = useState(false)
 
   const Add = (a) => {
     a.preventDefault()
@@ -16,6 +22,9 @@ export default function App() {
     setItem(newItems);
   };
 
+  const handleClick = () => {
+    setIsActive(!isActive)
+  }
 
   return (
     <div className="container">
@@ -29,9 +38,9 @@ export default function App() {
        </form>
      <div className="main-box">
      {item.map((item, index) => (
-          <div className="box" key={index}>
-            {item}
-            <button className="done-button" >Done</button>
+      <div className="box">
+          <p className={isActive ? 'span' : 'line'} key={index}>{item}</p>
+            <button className="done-button" onClick={handleClick}>Done</button>
             <button onClick={() => Remove(index)} className="remove-button">Remove</button>
           </div>
         ))}

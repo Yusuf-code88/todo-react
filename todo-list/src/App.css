@@ -48,7 +48,6 @@ background-color: #FFFAE5;}
   align-items: center;
   padding: 0 14px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.411);
-
 }
 
 .box button {
@@ -76,4 +75,11 @@ background-color: #FFFAE5;}
   flex-direction: column;
   margin-left: 380px;
   gap: 30px;
+}
+
+.line {
+  font-size: 18px;
+}.span {
+  font-size: 18px;
+  text-decoration: line-through;
 }
